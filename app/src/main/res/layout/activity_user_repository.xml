@@ -38,7 +38,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Repositories" />
-
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressbar_user"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="36dp"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView_repositories"
                     android:layout_width="match_parent"

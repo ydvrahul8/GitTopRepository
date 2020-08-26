@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -49,6 +50,7 @@ class UserRepositoryActivity : AppCompatActivity() {
         viewModel?.userRepository?.observe(this, Observer {
             Log.e(TAG, "userRepositoryObserver: ${it.size} and " + it.toString())
             if (!it.isNullOrEmpty()) {
+                progressbar_user.visibility = View.GONE
                 recyclerView_repositories.layoutManager = LinearLayoutManager(this)
                 recyclerView_repositories.setHasFixedSize(true)
                 recyclerView_repositories.adapter = RepositoryAdapter(it) {

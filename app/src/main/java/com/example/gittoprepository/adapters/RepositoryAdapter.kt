@@ -18,7 +18,7 @@ class RepositoryAdapter(
     inner class RepositoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(position: Int, listener: (Int) -> Unit) {
             Glide.with(itemView)
-                .load(list[position].owner.avatar_url)
+                .load(list[position].owner?.avatar_url)
                 .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
                 .into(image)

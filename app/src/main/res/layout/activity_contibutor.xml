@@ -98,6 +98,12 @@
                     android:layout_height="wrap_content"
                     android:text="Contributors" />
 
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressbar_contributor"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="36dp"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
