@@ -1,4 +1,4 @@
-package com.example.gittoprepository
+package com.example.gittoprepository.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.gittoprepository.R
 import com.example.gittoprepository.adapters.RepositoryAdapter
-import com.example.gittoprepository.models.Repository
 import com.example.gittoprepository.viewmodels.AllRepositoriesViewModel
 import kotlinx.android.synthetic.main.activity_all_repositories.*
 

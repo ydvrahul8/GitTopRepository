@@ -1,5 +1,9 @@
 package com.example.gittoprepository.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Repository(
     val archive_url: String,
     val assignees_url: String,
@@ -47,4 +51,4 @@ data class Repository(
     val teams_url: String,
     val trees_url: String,
     val url: String
-)
+):Parcelable
