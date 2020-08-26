@@ -39,7 +39,7 @@ class ContributorAdapter(
         return ContributorViewHolder(view)
     }
 
-    override fun getItemCount(): Int = 20
+    override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ContributorViewHolder, position: Int) {
         holder.bind(position, listener)
