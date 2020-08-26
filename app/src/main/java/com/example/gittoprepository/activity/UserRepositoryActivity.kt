@@ -7,16 +7,20 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gittoprepository.R
 import com.example.gittoprepository.adapters.ContributorAdapter
+import com.example.gittoprepository.adapters.RepositoryAdapter
 import com.example.gittoprepository.models.Contributor
 import com.example.gittoprepository.models.Repository
 import com.example.gittoprepository.utils.ACCESS_TOKEN
 import com.example.gittoprepository.utils.DATA
 import com.example.gittoprepository.viewmodels.ContributorsViewModel
 import com.example.gittoprepository.viewmodels.UserRepositoryViewModel
+import kotlinx.android.synthetic.main.activity_all_repositories.*
 import kotlinx.android.synthetic.main.activity_contibutor.*
+import kotlinx.android.synthetic.main.activity_user_repository.*
 
 class UserRepositoryActivity : AppCompatActivity() {
     private val TAG = "UserRepositoryActivity"
@@ -44,6 +48,13 @@ class UserRepositoryActivity : AppCompatActivity() {
     private fun userRepositoryObserver() {
         viewModel?.userRepository?.observe(this, Observer {
             Log.e(TAG, "userRepositoryObserver: ${it.size} and " + it.toString())
+            if (!it.isNullOrEmpty()) {
+                recyclerView_repositories.layoutManager = LinearLayoutManager(this)
+                recyclerView_repositories.setHasFixedSize(true)
+                recyclerView_repositories.adapter = RepositoryAdapter(it) {
+                }
+            } else
+                Toast.makeText(this, "Sorry no data found...", Toast.LENGTH_SHORT).show()
         })
     }
 }
