@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -33,5 +34,22 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.2.0'
 
+    //retrofit
+    def retrofitVersion = "2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    //ViewModel
+    def lifecycle_ver = '2.2.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_ver"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_ver"
+
+    //glide
+    def glide_ver = '4.10.0'
+    implementation "com.github.bumptech.glide:glide:$glide_ver"
+    kapt "com.github.bumptech.glide:compiler:$glide_ver"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_ver"
 }
