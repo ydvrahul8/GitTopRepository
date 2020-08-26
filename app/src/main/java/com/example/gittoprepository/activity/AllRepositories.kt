@@ -1,5 +1,6 @@
 package com.example.gittoprepository.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gittoprepository.R
 import com.example.gittoprepository.adapters.RepositoryAdapter
+import com.example.gittoprepository.utils.DATA
 import com.example.gittoprepository.viewmodels.AllRepositoriesViewModel
 import kotlinx.android.synthetic.main.activity_all_repositories.*
 
@@ -32,7 +34,9 @@ class AllRepositories : AppCompatActivity() {
                 recyclerView.layoutManager = LinearLayoutManager(this)
                 recyclerView.setHasFixedSize(true)
                 recyclerView.adapter = RepositoryAdapter(it) { position ->
-                    Toast.makeText(this, "Data is $position", Toast.LENGTH_SHORT).show()
+                   var intent = Intent(this,ContibutorActivity::class.java)
+                    intent.putExtra(DATA,it[position])
+                    startActivity(intent)
                 }
             } else
                 Toast.makeText(this, "Sorry no data found...", Toast.LENGTH_SHORT).show()
