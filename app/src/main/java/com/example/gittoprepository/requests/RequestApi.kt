@@ -19,4 +19,11 @@ interface RequestApi {
         @Query("page") pageNo: Int,
         @Query("access_token") accessToken: String
     ): Call<MutableList<Contributor>>
+
+    @GET("users/{user}/repos")
+    fun getUserRepositories(
+        @Path(value = "user", encoded = true) name: String
+    ): Call<MutableList<Repository>>
+
+
 }

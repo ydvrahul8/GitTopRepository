@@ -1,5 +1,9 @@
 package com.example.gittoprepository.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Contributor(
     val avatar_url: String,
     val contributions: Int,
@@ -20,4 +24,4 @@ data class Contributor(
     val subscriptions_url: String,
     val type: String,
     val url: String
-)
+):Parcelable

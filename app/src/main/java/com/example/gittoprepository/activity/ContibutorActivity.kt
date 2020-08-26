@@ -50,7 +50,9 @@ class ContibutorActivity : AppCompatActivity() {
             if (!it.isNullOrEmpty()) {
                 recyclerView_contributors.setHasFixedSize(true)
                 recyclerView_contributors.adapter = ContributorAdapter(it) { position ->
-
+                    var intent = Intent(this,UserRepositoryActivity::class.java)
+                    intent.putExtra(DATA,it[position])
+                    startActivity(intent)
                 }
             } else
                 Toast.makeText(this, "Sorry no data found...", Toast.LENGTH_SHORT).show()
